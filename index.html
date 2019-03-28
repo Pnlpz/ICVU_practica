@@ -1,0 +1,288 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Estilos-->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Barlow" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/tooltip.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <!--JS -->
+    <!-- <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.csv.min.js"></script>
+    <script src="js/Chart.bundle.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/radar.js"></script>
+    <script src="js/chart_google.js"></script>
+  </head>
+  <body>
+
+  <!--
+  FILTROS:
+  =========
+  - población
+  - norte a sur
+  - costeras o mediterráneas
+  - metropolitanas o no
+  - porcentaje
+  - per cápita
+
+  ORDEN:
+  =========
+  - de mayor a menor indicador por dimensión,
+  - de mayor a menor indicador por dimensión ICVU como índice sintético, ó
+  - geográficamente (norte a sur).
+
+  GUARDAR O IMPRIMIR CHARTS (EXPORT OPTIONS-REVISAR):
+  https://www.amcharts.com/kbase/exporting-charts-and-maps-to-images-or-pdf/
+  -->
+
+  <div class="mensaje-nodesktop">
+    <h2>ICVU 2018</h2>
+    <hr>
+    <img class="pc-alerta" src="iconos-svg/icono_pc.svg" alt="Te recomendamos ingresar desde un computador" />
+  </div>
+
+
+  <div class="container" >
+    <div class="row">
+
+      <!--Inicio Filtros para ordenamiento-->
+      <section class="col-lg-3" id="ordenamiento">
+          <div class="icvu-indicador">
+              <h1 id="titulo">ICVU</h1>
+              <span class="bajada-titulo">Índice de calidad de vida urbano</span>
+          </div>
+          <div class="parte-orden">
+              <h3 id="datos">Datos</h3>
+              <!--
+              <label for="order0">Mostrar:</label>
+              <select name="order0" id="order0">
+              <option value=1 selected="true">Comunas</option>
+              <option value=2> Ciudades Intermedias</option>
+              <option value=3> Ciudades Metropolitanas</option>
+              </select>
+            -->
+              <div id="filter_type_div"></div>
+          </div>
+          <div class="parte-orden">
+              <h3>Ordenamiento</h3>
+              <label for="order1">Ordenar por</label>
+              <!--
+              <select name="order1" id="order1">
+              <option value=0>Comuna</option>
+              <option value=1 selected="true">Población</option>
+              <option value=2>D1</option>
+              <option value=3>D2</option>
+              </select><br>
+              -->
+              <select name="order1" id="order1">
+                  <!--
+                  <option value=0>Comuna</option>
+                  -->
+                  <option value=7 selected="true">ICVU</option>
+                  <option value=8> Condiciones Laborales</option>
+                  <option value=9> Ambiente de Negocios</option>
+                  <option value=10> Condiciones Socio Culturales</option>
+                  <option value=11> Conectividad y Movilidad</option>
+                  <option value=12> Condiciones de Salud</option>
+                  <option value=13> Vivienda y Entorno</option>
+              </select><br>
+              <br>
+              <label for="order2">En forma</label>
+              <select name="order2" id="order2">
+                  <option value=1>Ascendente</option>
+                  <option value=2 selected="true">Descendente</option>
+              </select>
+          </div>
+
+          <!--Divs that will hold each control and chart-->
+          <div class="parte-orden primer-filtro" id="div_filtros">
+              <h3 id="filtros">Filtros</h3>
+              <div id="filter_poblacion_div"></div>
+              <div id="filter_metropolitana_div"></div>
+              <div id="filter_distribucion_div"></div>
+              <div id="filter_localizacion_div"></div>
+              <div id="filter_dependencia_div"></div>
+              <div id="filter_per_capita_div"></div>
+          </div>
+      </section>
+      <!--Fin filtros-->
+
+      <!--Inicio barra gris superior -->
+      <div class="gris-input-modal">
+          <!-- Boton modal: qué es icvu + exportar data > -->
+          <div class="definicion">
+            <!--
+              <a class="btn btn-primary menu-opciones" href="datos_icvu2.csv" style="right: 150px;"><i class="fas fa-download"></i> Exportar Data</a>
+            -->
+              <a class="btn btn-primary menu-opciones" data-toggle="modal" data-target="#exampleModal" style="right: 20px;"> ¿Qué es el ICVU?</a>
+          </div>
+      </div>
+      <!--Fin barra gris superior -->
+
+      <!--Inicio 5 columnas, bar-chart -->
+      <section class="col-lg-5 div-graficos">
+          <div class="borde"  id="scrolleable">
+              <div id="chartRanking" class="scrollable"></div>
+              <div class="footer">
+              <!--  <button  id="button1" type="button" class="btn">Exportar SVG</button>
+              -->
+                  <a id="downloadRanking"  class="btn" href="#">Exportar PNG</a>
+              </div>
+          </div>
+      </section>
+      <!--Inicio 5 columnas, bar-chart -->
+
+      <!--Inicio spider -->
+      <section class="col-lg-5 ultimo div-graficos" >
+          <div class="borde" id="scrolleable">
+              <div id="radar-body">
+                <canvas id="spider"></canvas>
+              </div>
+              <div class="footer">
+                <!--button  id="button2" type="button" class="btn">Exportar</button-->
+                <!--
+                <a id="map" href="mapas/AMV/AMV_ICVU.jpg" class="btn" alt="Image description" target="_blank"  download="mapas/AMV/AMV_ICVU.jpg">Exportar Mapa Metropolitano</a>
+              -->
+
+                <a id="map" href="" class="btn" alt="Image description" target="_blank"  download="">Exportar Mapa Metropolitano</a>
+                <br>
+                <a id="download" class="btn" href="#">Exportar PNG</a>
+              </div>
+              <div id="chartDetail"></div>
+            <!--Hola-->
+            <!--canvas id="myLineChart" width="740" height="200"></canvas-->
+          </div><!--Fin borde -->
+      </section>
+      <!--Fin 5 columnas, spider -->
+
+      <!--Inicio footer -->
+      <footer class="footer_main">
+          <img src="logos/logocchc.svg" alt="Logo CChC" />
+          <img src="logos/logoinstituto_estudios_urbanos.svg" alt="Logo Instituto de Estudios Urbanos" />
+          <img src="logos/logo_ocuc.svg" alt="Logo OCUC" />
+      </footer>
+
+    </div><!--Fin row-->
+  </div><!--Fin del container-->
+
+  <!-- Dashboard < -->
+    <!--Div that will hold the dashboard-->
+    <div class="hidden">
+        <div class="col-lg-2" id="data-vista">
+            <button>  EXPORTAR Ranking  </button>
+            <button>  EXPORTAR Detalle  </button>
+            <div id="hidden">
+                <div id="tabla" style=""></div>
+                <!--Fin de lo que corrí-->
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title" id="exampleModalLabel">¿Qué es el Indice de Calidad de Vida Urbana (ICVU)?</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+                <div class="col-lg-11 col-lg-offset-1">
+                  <p>Un índice sintético que mide y compara en términos relativos la calidad de vida urbana de comunas y ciudades en Chile, a partir de un conjunto de variables referidas a seis dimensiones que expresan el estado de situación en la provisión de bienes y servicios públicos y privados a la población residente y sus correspondientes impactos socioterritoriales, tanto a la escala de de ciudades intermedias como ciudades metropolitanas.</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-11">
+                    <hr>
+                    <h4>El ICVU se construye por medio de la medición de 6 dimensiones:</h4>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 dimension_icvu">
+                    <img class="iconos-icvu" src="iconos-svg/vivienda-entorno.svg" alt="Vivienda y Entorno" />
+                    <h5>Vivienda y Entorno</h5>
+                    <hr>
+                    <p> Variables que dan cuenta de la calidad de la vivienda, nivel de hacinamiento e inversión en el espacio público más próximo para sus residentes.  </p>
+                </div>
+                <div class="col-lg-4 dimension_icvu">
+                    <img class="iconos-icvu" src="iconos-svg/condiciones-socioculturales.svg" alt="Condiciones socioculturales" />
+                    <h5>Condiciones Socioculturales</h5>
+                    <hr>
+                    <p>Variables relativas al nivel de participación de la población en organizaciones sociales, así como a los niveles de seguridad y educación que afectan la formación de capital social. </p>
+                </div>
+                <div class="col-lg-4 dimension_icvu">
+                    <img class="iconos-icvu" src="iconos-svg/ambiente-negocios.svg" alt="Ambiente de negocios" />
+                    <h5>Ambiente de Negocios</h5>
+                    <hr>
+                    <p>Variables económicas manifiestas que permitan corroborar que la ciudad y/o comuna es un medio urbano favorable para la generación de inversiones privadas y/o emprendimientos por cuenta propia.
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 dimension_icvu">
+                    <img class="iconos-icvu" src="iconos-svg/condicion-laboral.svg" alt="Ambiente laboral" />
+                    <h5>Condiciones Laborales</h5>
+                    <hr>
+                    <p> Variables que miden las facilidades de acceso al mercado laboral, ingresos, capacitaciones, desarrollo profesional y protección social de los residentes.</p>
+                </div>
+                <div class="col-lg-4 dimension_icvu">
+                    <img class="iconos-icvu" src="iconos-svg/salud-medio-ambiente.svg" alt="Condiciones de Salud" />
+                    <h5>Condiciones de Salud</h5>
+                    <hr>
+                    <p>  Condiciones de salud de la población en relación a enfermedades que presentan una mayor correlación con las condiciones ambientales y su medio antrópico.</p>
+                </div>
+                <div class="col-lg-4 dimension_icvu">
+                    <img class="iconos-icvu" src="iconos-svg/conectividad-movilidad.svg" alt="Conectividad y movilidad" />
+                    <h5>Conectividad y Movilidad</h5>
+                    <hr>
+                    <p> Variables relacionadas con las condiciones de la infraestructura de conectividad, movilidad  y seguridad vial de la población residente.</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-11">
+                    <hr>
+                    <h4>¿Cuáles son los rangos promedio?</h4>
+
+                </div>
+                <div class="col-lg-8 col-lg-offset-4 rangos-radar">
+                    <span>Rango Promedio</span>
+                    <p>Rango que va desde el promedio más media desviación estándar y el promedio menos media desviación estándar, incluyendo ambos puntajes.</p>
+                    <span>Rango Inferior</span>
+                    <p>Todo puntaje menor al  mínimo del Rango Promedio.</p>
+                    <span>Rango Superior</span>
+                    <p>Todo puntaje mayor al máximo del Rango Promedio. </p>
+                    <span>Rango Máximo</span>
+                    <p>Máximo valor posible. </p>
+                </div>
+            </div>
+          </div>
+
+          <div class="modal-footer">
+              <button type="button" class="btn btn-secondary pull-right " data-dismiss="modal">Close</button>
+          </div>
+          <img class="area-grafico" src="iconos-svg/promedio.svg" alt="promedio icvu" />
+          <img class="grafico-ej" src="iconos-svg/grafico.svg" alt="ejemplo de gráfico y distintos límites en rangos del icvu" />
+          <img class="grafico-ej grafico-inf" src="iconos-svg/inferior.svg" alt="rango inferior" />
+          <img class="grafico-ej grafico-sup" src="iconos-svg/superior.svg" alt="rango superior" />
+          <img class="grafico-ej grafico-max" src="iconos-svg/maximo.svg" alt="rango máximo" />
+
+        </div>
+      </div>
+    </div>
+
+  </body>
+</html>
