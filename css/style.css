@@ -435,3 +435,7 @@ h4{
   height: 25px;
   width: auto;
 }
+
+text {
+  font-family: 'Barlow', sans-serif !important;
+}
