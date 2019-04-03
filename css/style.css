@@ -26,7 +26,6 @@ a:hover {
 .borde{
   height: 95vh;
   max-height: 635px;
-  background-color: #BDBDBD;
 }
 
 #ordenamiento{
@@ -89,7 +88,7 @@ a:hover {
 #scrolleable{
     text-align: center;
     padding: 1em;
-    border: 3px solid grey;
+    border: 3px solid #BDBDBD;
     box-sizing: border-box;
   }
 
