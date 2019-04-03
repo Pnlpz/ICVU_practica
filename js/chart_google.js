@@ -265,7 +265,8 @@ function downloadImageSvg(imageContainer, filename){
         table.draw(data, {
           showRowNumber: true,
           width: '90%',
-          height: '200'}
+          height: '200',
+          fontName: 'Barlow'}
           );
 
         view = new google.visualization.DataView(data);
