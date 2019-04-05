@@ -665,6 +665,9 @@ google.visualization.events.addListener(TypeFilter, 'statechange', function() {
           (selectedVals == "Ciudades Metropolitanas")? $("#div_filtros").hide() :  $("#div_filtros").show();
 
           (selectedVals == "Ciudades Intermedias")? $("#map").hide() :  $("#map").show();
+          (selectedVals == "Ciudades Intermedias")? $("#filtros").hide() :  $("#filtros").show();
+          (selectedVals == "Ciudades Intermedias")? $("#div_filtros").hide() :  $("#div_filtros").show();
+
 });
 
         //dashboard.bind([PopulationRangeSlider, MetropolitanaFilter, LocalizacionFilter, DistribucionFilter], [barChart, tableChart]);
