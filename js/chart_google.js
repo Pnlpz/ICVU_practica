@@ -283,7 +283,7 @@ function downloadImageSvg(imageContainer, filename){
           'controlType': 'NumberRangeFilter',
           'containerId': 'filter_poblacion_div',
           'options': {
-            //'filterColumnLabel': 'Población',
+            // 'filterColumnLabel': 'Población',
             'filterColumnIndex': 1,
             'minValue': '0',
             ui: {
