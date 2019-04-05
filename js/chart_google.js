@@ -371,7 +371,7 @@ function downloadImageSvg(imageContainer, filename){
                 allowTyping: false,
                 allowMultiple: false,
                 height: 100,
-                caption : 'Metropolitanas y no Metropolitanas'
+                caption : 'Tipo de comunas'
             },values: ["Solo metropolitana", "Solo no Metropolitanas"]
             //'filterColumnLabel': 'Metropolitana',
           }
