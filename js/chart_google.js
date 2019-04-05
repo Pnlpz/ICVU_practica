@@ -320,7 +320,7 @@ function downloadImageSvg(imageContainer, filename){
 // Seleccionar año 
         var TypeFilter = new google.visualization.ControlWrapper({
           'controlType': 'CategoryFilter',
-          'containerId': 'filter_type_div',
+          'containerId': 'filter_type_div2',
           'options': {
             'filterColumnIndex': 16,
             ui: {
