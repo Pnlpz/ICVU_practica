@@ -308,7 +308,7 @@ function downloadImageSvg(imageContainer, filename){
                 allowTyping: false,
                 allowMultiple: false,
                 height: 100,
-                caption : 'Mostrar',
+                caption : 'División político administrativa',
             'allowNone': false
             }
             //'filterColumnLabel': 'Localización',
@@ -317,7 +317,6 @@ function downloadImageSvg(imageContainer, filename){
           }
 
         });
-
         /************************************************************************************/
           // RETOMAR ESTA PARTE PARA SETEAR VALOR
           //PopulationRangeSlider.setState({'lowValue': 2, 'highValue': 5});
