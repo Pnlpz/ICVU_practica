@@ -290,13 +290,13 @@ function downloadImageSvg(imageContainer, filename){
                 labelStacking: 'vertical',
                 allowTyping: false,
                 allowMultiple: false,
-                height: 100
+                height: 100,
             }
           }
         });
 
 
-
+// Selecciona comunas
         // Create a CategoryFilter, passing some options
         var TypeFilter = new google.visualization.ControlWrapper({
           'controlType': 'CategoryFilter',
@@ -314,6 +314,26 @@ function downloadImageSvg(imageContainer, filename){
             //'filterColumnLabel': 'Localización',
           },state: {
             selectedValues: ['Comunas']
+          }
+
+        });
+// Seleccionar año 
+        var TypeFilter = new google.visualization.ControlWrapper({
+          'controlType': 'CategoryFilter',
+          'containerId': 'filter_type_div',
+          'options': {
+            'filterColumnIndex': 16,
+            ui: {
+                labelStacking: 'vertical',
+                allowTyping: false,
+                allowMultiple: false,
+                height: 100,
+                caption : 'Año',
+            'allowNone': false
+            }
+            //'filterColumnLabel': 'Localización',
+          },state: {
+            selectedValues: ['Años']
           }
 
         });
