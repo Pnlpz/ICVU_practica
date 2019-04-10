@@ -12,14 +12,24 @@ body{
     background-repeat: no-repeat;
     background-size: cover;
     background-position: left;
+    height: 250px;
+    z-index: 0;
 }
+.title {
+    font-family: Arial, Helvetica, sans-serif;
+    z-index: 100;
+    position: absolute;
+    top: 20%; /* 11 vw*/
+    left: 45%;
+} 
+
 .accordion {
     align-self: center;
     float: center;
 }
  .card-header {
-     width: 60%;
-     height: 10%;
+     /* width: 60%;
+     height: 10%; */
      background-color: #222;
      color: white;
      text-align: center;
@@ -45,18 +55,20 @@ body{
   .dimension_icvu h5{
     font-size: 14px;
     margin: 0.5em;
+    font-weight: bold;
   }
   h4{
-    font-size: 16px;
-    font-weight: bold;
     text-transform: uppercase;
     margin: 1em;
   }
   hr{
-    border: 1px solid #222;
+    border: 0.5px solid #222;
   }
   .underscore {
-      width: 600px;
+      width: 550px;
+  }
+  .mini {
+      width: 50px;
   }
 .col-md-8 span{
     font-weight: 600;
@@ -65,14 +77,16 @@ body{
 @media (max-width: 1099px){
     .col-md-8, .col-md-5, .col-md-6, .col-md-3, .col-lg-8, .col-lg-3, .col-lg-5, .definicion, .footer_main{
       display: none;
-    } */
+    } 
 /* .footer_main{
         text-align: right;
         margin-right: 3vw;
       } */
-.footer_main > img{
+/* .footer_main > div, img, p{
         display: inline-block;
-        margin-top: 6px;
-        height: 25px;
+        margin-top: 0;
+        height: 100px;
         width: auto;
-      }
+        float: left;
+      } */
+
