@@ -1,0 +1,78 @@
+body{
+    font-family: 'Barlow', sans-serif !important;
+    background-color: #ffffff;
+  }
+
+/* .imagen {
+    height: 50px;
+    width: 100%;
+} */
+.image {
+    background-image: url('../assets/home_icvu.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: left;
+}
+.accordion {
+    align-self: center;
+    float: center;
+}
+ .card-header {
+     width: 60%;
+     height: 10%;
+     background-color: #222;
+     color: white;
+     text-align: center;
+ }
+ .btn-link {
+     color: white;
+     font-size: 0.8em;
+     margin-top: 10px;
+ }
+
+ i {
+     float: right;
+     margin: 15px 15px 0 0;
+ }
+ .iconos-icvu{
+    max-width: 70px;
+    align-self: center;
+  }
+  .dimension_icvu p{
+    font-size: 13px;
+    margin: 0;
+  }
+  .dimension_icvu h5{
+    font-size: 14px;
+    margin: 0.5em;
+  }
+  h4{
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin: 1em;
+  }
+  hr{
+    border: 1px solid #222;
+  }
+  .underscore {
+      width: 600px;
+  }
+.col-md-8 span{
+    font-weight: 600;
+  }
+
+@media (max-width: 1099px){
+    .col-md-8, .col-md-5, .col-md-6, .col-md-3, .col-lg-8, .col-lg-3, .col-lg-5, .definicion, .footer_main{
+      display: none;
+    } */
+/* .footer_main{
+        text-align: right;
+        margin-right: 3vw;
+      } */
+.footer_main > img{
+        display: inline-block;
+        margin-top: 6px;
+        height: 25px;
+        width: auto;
+      }

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Estilos-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Barlow" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/tooltip.css">
+    <link rel="stylesheet" href="css/index.css">
+
+    <!--JS -->
+    <!-- <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.csv.min.js"></script>
+
+  </head>
+  <body>
+<header class="hero text-center">
+    <div class="image img-fluid"> 
+        <div class="container ">
+            <!-- <img src="assets/home_icvu.jpg" alt="" class="img-fluid" height="20%" width="100%">   -->
+            <h1 class="display-1">ICVU</h1>
+        </div>
+    </div>
+    <h4 class="display-5">Índice de calidad de vida urbana de las comunas y ciudades de Chile.</h4>
+    <hr class="underscore">
+</header>
+
+
+<section class="row">
+        <div class="accordion col-md-10" id="accordionExample">
+                <div class="card border-0 mb-4">
+                  <div class="card-header col-md-offset-4" id="headingOne">
+                    <h2 class="mb-0">
+                      <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        ¿Qué es el ICVU?
+                      </button>
+                      <span><i class="fas fa-plus text-white"></i></span> 
+                    </h2>
+                  </div>
+                  <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                    <div class="card-body col-md-offset-4">
+                            <div class="row">
+                                    <div class="col-lg-11">
+                                    <p>Un índice sintético que mide y compara en términos relativos la calidad de vida urbana de comunas y ciudades en Chile, a partir de un conjunto de variables referidas a seis dimensiones que expresan el estado de situación en la provisión de bienes y servicios públicos y privados a la población residente y sus correspondientes impactos socioterritoriales, tanto a la escala de de ciudades intermedias como ciudades metropolitanas.</p>
+                                    </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-11">
+                                    <hr>
+                                    <h4>El ICVU se construye por medio de la medición de 6 dimensiones:</h4>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-4 dimension_icvu">
+                                    <img class="iconos-icvu" src="iconos-svg/vivienda-entorno.svg" alt="Vivienda y Entorno" />
+                                    <h5>Vivienda y Entorno</h5>
+                                    <hr>
+                                    <p> Variables que dan cuenta de la calidad de la vivienda, nivel de hacinamiento e inversión en el espacio público más próximo para sus residentes.  </p>
+                                </div>
+                            
+                                <div class="col-lg-4 dimension_icvu">
+                                    <img class="iconos-icvu" src="iconos-svg/condiciones-socioculturales.svg" alt="Condiciones socioculturales" />
+                                    <h5>Condiciones Socioculturales</h5>
+                                    <hr>
+                                    <p>Variables relativas al nivel de participación de la población en organizaciones sociales, así como a los niveles de seguridad y educación que afectan la formación de capital social. </p>
+                                </div>
+                                <div class="col-lg-4 dimension_icvu">
+                                    <img class="iconos-icvu" src="iconos-svg/ambiente-negocios.svg" alt="Ambiente de negocios" />
+                                    <h5>Ambiente de Negocios</h5>
+                                    <hr>
+                                    <p>Variables económicas manifiestas que permitan corroborar que la ciudad y/o comuna es un medio urbano favorable para la generación de inversiones privadas y/o emprendimientos por cuenta propia.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-4 dimension_icvu">
+                                    <img class="iconos-icvu" src="iconos-svg/condicion-laboral.svg" alt="Ambiente laboral" />
+                                    <h5>Condiciones Laborales</h5>
+                                    <hr>
+                                    <p> Variables que miden las facilidades de acceso al mercado laboral, ingresos, capacitaciones, desarrollo profesional y protección social de los residentes.</p>
+                                </div>
+                                <div class="col-lg-4 dimension_icvu">
+                                    <img class="iconos-icvu" src="iconos-svg/salud-medio-ambiente.svg" alt="Condiciones de Salud" />
+                                    <h5>Condiciones de Salud</h5>
+                                    <hr>
+                                    <p>  Condiciones de salud de la población en relación a enfermedades que presentan una mayor correlación con las condiciones ambientales y su medio antrópico.</p>
+                                </div>
+                                <div class="col-lg-4 dimension_icvu">
+                                    <img class="iconos-icvu" src="iconos-svg/conectividad-movilidad.svg" alt="Conectividad y movilidad" />
+                                    <h5>Conectividad y Movilidad</h5>
+                                    <hr>
+                                    <p> Variables relacionadas con las condiciones de la infraestructura de conectividad, movilidad  y seguridad vial de la población residente.</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-11">
+                                    <hr>
+                                    <h4>¿Cuáles son los rangos promedio?</h4>
+                    
+                                </div>
+                                <div class="col-lg-8 col-lg-offset-4 rangos-radar">
+                                    <span>Rango Promedio</span>
+                                    <p>Rango que va desde el promedio más media desviación estándar y el promedio menos media desviación estándar, incluyendo ambos puntajes.</p>
+                                    <span>Rango Inferior</span>
+                                    <p>Todo puntaje menor al  mínimo del Rango Promedio.</p>
+                                    <span>Rango Superior</span>
+                                    <p>Todo puntaje mayor al máximo del Rango Promedio. </p>
+                                    <span>Rango Máximo</span>
+                                    <p>Máximo valor posible. </p>
+                                </div>
+                            </div> 
+                    </div>
+                  </div>
+                </div>
+                <div class="card border-0 mb-4">
+                  <div class="card-header col-md-offset-4" id="headingTwo">
+                    <h2 class="mb-0">
+                      <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        Explorar resultados 2018
+                      </button>
+                    </h2>
+                  </div>
+                  <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                    <div class="card-body">
+                      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                    </div>
+                  </div>
+                </div>
+                <div class="card border-0 mb-4">
+                  <div class="card-header col-md-offset-4" id="headingThree">
+                    <h2 class="mb-0">
+                      <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        Explorar resultados 2019
+                      </button>
+                    </h2>
+                  </div>
+                  <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                    <div class="card-body">
+                      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                    </div>
+                  </div>
+                </div>
+              </div>
+</section>
+
+
+<footer class="footer_main">
+    <div class="text-center mx-auto">
+        <img src="logos/logocchc.svg" alt="Logo CChC" />
+        <img src="logos/logoinstituto_estudios_urbanos.svg" alt="Logo Instituto de Estudios Urbanos"  />
+        <img src="logos/logo_ocuc.svg" alt="Logo OCUC" height="100px" width="100px"/>
+    </div>
+</footer>
+
+    </body>
+    </html>
